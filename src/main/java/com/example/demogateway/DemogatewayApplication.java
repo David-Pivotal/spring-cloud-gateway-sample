@@ -28,6 +28,7 @@ public class DemogatewayApplication {
 		//@formatter:off
 		return builder.routes()
 				.route("path_route", r -> r.path("/get")
+				                .filters(f -> f.addRequestHeader("X-TestHeader", "rewrite_request"))
 						.uri("http://httpbin.org"))
 				.route("host_route", r -> r.host("*.myhost.org")
 						.uri("http://httpbin.org"))
